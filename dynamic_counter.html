@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Counter Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+            animation: fadeIn 2s ease-in;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .counter {
+            font-size: 5em;
+            font-weight: bold;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Dynamic Counter Website</h1>
+    <div class="counter" id="counter">0</div>
+
+    <script>
+        let count = localStorage.getItem("counter") || 0;
+        count = parseInt(count) + 5;
+        localStorage.setItem("counter", count);
+        document.getElementById("counter").textContent = count;
+    </script>
+</body>
+</html>
